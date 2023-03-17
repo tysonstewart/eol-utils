@@ -1,0 +1,87 @@
+{
+  "name": "eol-utils",
+  "displayName": "EOL Utils",
+  "version": "0.1.0",
+  "description": "Quick commands for adding semicolons and commas in code",
+  "engines": {
+    "vscode": "^1.22.0"
+  },
+  "main": "./extension.js",
+  "scripts": {
+    "package": "vsce package",
+    "install": "mkdir -p ~/.vscode/extensions/eol-util && cp ./package.json ~/.vscode/extensions/eol-util && cp ./extension.js ~/.vscode/extensions/eol-util"
+  },
+  "author": "",
+  "license": "MIT",
+  "activationEvents": [
+    "onCommand:eol-utils.semicolon",
+    "onCommand:eol-utils.comma"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "eol-utils.semicolon",
+        "title": "Append semicolon to the end of the current line"
+      },
+      {
+        "command": "eol-utils.comma",
+        "title": "Append comma to the end of the current line"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "shift+enter",
+        "command": "eol-utils.semicolon",
+        "when": "editorTextFocus && !editorReadonly"
+      },
+      {
+        "key": "ctrl+shift+enter",
+        "command": "eol-utils.comma",
+        "when": "editorTextFocus && !editorReadonly"
+      },
+      {
+        "key": "alt+h",
+        "command": "cursorLeft",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "alt+l",
+        "command": "cursorRight",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "alt+j",
+        "command": "cursorDown",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "alt+k",
+        "command": "cursorUp",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "shift+alt+h",
+        "command": "cursorLeftSelect",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "shift+alt+l",
+        "command": "cursorRightSelect",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "shift+alt+j",
+        "command": "cursorDownSelect",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "shift+alt+k",
+        "command": "cursorUpSelect",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vsce": "^2.5.3"
+  }
+}
